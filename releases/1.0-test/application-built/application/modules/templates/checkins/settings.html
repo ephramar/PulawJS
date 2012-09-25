@@ -1,0 +1,123 @@
+<div data-role="header" data-theme="b">
+	<h1>Settings</h1>
+	<a class="backBtn" data-icon="back">Back</a>
+	<a href="#" data-icon="home">Home</a>
+</div>
+
+<div data-role="content" role="main">
+
+		<div data-role="fieldcontain">
+			<label for="checkInSettingsSort">Sort By:</label>
+		 	<select id="checkInSettingsSort">
+			<%
+				var sorts ={
+					date:{
+						label: 'Date',
+						value: 'date'
+					},
+					distance:{
+						label: 'Distance',
+						value: 'distance'
+					}
+				};
+			%>
+			<% _.each( sorts, function( sort ){ %>
+				<% if( CheckIns.get('activity_order') == sort.value ){ %>
+					<option selected value="<%=sort.value%>"><%=sort.label%></option>
+				<% }else{ %>
+					<option value="<%=sort.value%>"><%=sort.label%></option>
+				<% } %>
+			<% }) %>
+			</select>
+		</div>
+		
+		<div data-role="fieldcontain">
+		<label for="checkInSettingsSortDirection">Direction:</label>
+			<select name="direction" id="checkInSettingsSortDirection" data-role="slider">
+			<%
+				var orders ={
+					ascending:{
+						label: 'Asc',
+						value: 'asc'
+					},
+					descending:{
+						label: 'Desc',
+						value: 'desc'
+					}
+				};
+				_.each( orders, function( order ){
+					console.log( CheckIns.get('sort_order') + ' ' + order.value );
+					if( CheckIns.get('sort_order') == order.value ){
+						var checked = 'selected';
+					}else{
+						var checked = '';
+					}
+			%>
+				<option <%=checked%> value="<%=order.value%>"><%=order.label%></option>
+			<% }); %>
+				
+			</select> 
+		</div>
+		
+		<div data-role="fieldcontain">
+			<label for="checkInSettingRadius">Radius:</label>
+		 	<input type="range" name="checkInSettingSlider" id="checkInSettingRadius" value="<%=CheckIns.get('circumference')%>" min="0" max="15"  />
+		</div>
+	
+		<div data-role="fieldcontain">
+			<fieldset data-role="controlgroup">
+				<legend>Show:</legend>
+					<%
+						var choices = {
+							all:{
+								id: 'radio-choice-1',
+								value: 'all',
+								label: 'All'
+							},
+							bazaar:{
+								id: 'radio-choice-2',
+								value: 'bazaar',
+								label: 'Bazaar'
+							},
+							instagram:{
+								id: 'radio-choice-3',
+								value: 'pics',
+								label: 'Instagram'
+							},
+							twitter:{
+								id: 'radio-choice-4',
+								value: 'tweets',
+								label: 'Twitter'
+							},
+							foursquare:{
+								id: 'radio-choice-5',
+								value: 'tips',
+								label: 'Foursquare'
+							}
+						};
+					%>
+					<% _.each( choices, function( choice ){ %>
+						
+						<%if( CheckIns.get( 'act' ) == choice.value ){
+							var selected = 'checked';
+						}else{
+							var selected = '';
+						}%>
+						
+						<input <%= selected %> type="radio" name="checkInsShowfilter" id="<%=choice.id%>" value="<%=choice.value%>" />
+						<label for="<%=choice.id%>""><%=choice.label%></label>
+						
+					<% }); %>
+			</fieldset>
+		</div>
+		
+		<button type="submit" data-theme="b" name="submit" id="checkinsUpdateSettingsBtn" value="submit-value">Update Settings</button>
+		
+</div>
+<div data-role="footer" data-position="fixed" data-theme="b">
+	<div data-role="navbar">
+		<ul>
+			<li><a href="/#checkins" data-icon="delete">Close</a></li>
+		</ul>
+	</div><!-- /navbar -->
+</div>

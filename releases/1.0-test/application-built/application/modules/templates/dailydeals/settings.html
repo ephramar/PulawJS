@@ -1,0 +1,49 @@
+<div data-role="header" data-theme="b">
+	<h1>Settings</h1>
+	<a class="backBtn" data-icon="back">Back</a>
+	<a href="#" data-icon="home">Home</a>
+</div>
+
+<div data-role="content" role="main">
+	
+		<div data-role="fieldcontain">
+			<label for="dailyDealsSort" class="select">Sort By:</label>
+				<select id="dailyDealsSort">
+					<%
+						var sort = {
+							radius:{ 'value': 'radius', label: 'Distance' },
+							time_ends:{ 'value': 'time_ends', label: 'Time Left' },
+							discount:{ 'value': 'discount', label: 'Discount' },
+							price:{ 'value': 'price', label: 'Price' },
+							time_started:{ 'value': 'time_started', label: 'Newest' },
+							popular:{ 'value': 'popular', label: 'Popular' }
+						};
+					%>
+					<% _.each( sort, function( response ){ %>
+						<% 
+						if( response.value == DailyDeals.get('orderby')){
+							var selected = 'selected';
+						}else{
+							var selected = '';
+						}
+						%>
+						<option <%=selected%> value="<%=response.value%>"><%=response.label%></option>
+					<% }); %>
+				</select>
+		</div>
+		
+		<div data-role="fieldcontain">
+			<label for="dailyDealSlider">Radius:</label>
+		 	<input type="range" name="dailyDealSlider" id="dailyDealSlider" value="<%=settings.circumference%>" min="0" max="15"  />
+		</div>
+		
+		<button type="submit" data-theme="e" id="dailyDealsSaved" name="submit" value="submit-value">Save</button>
+		
+</div>
+<div data-role="footer" data-position="fixed" data-theme="b">
+	<div data-role="navbar">
+		<ul>
+			<li><a href="/#dailydeals" data-icon="delete">Close</a></li>
+		</ul>
+	</div><!-- /navbar -->
+</div>

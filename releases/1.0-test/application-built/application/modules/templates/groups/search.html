@@ -1,0 +1,33 @@
+<div data-role="header" data-theme="b">
+	<h1>Search</h1>
+	<a class="backBtn" data-icon="back">Back</a>
+	<a href="#" data-icon="home">Home</a>
+</div>
+
+<div data-role="content" role="main">
+	
+		<div data-role="fieldcontain">
+			<label for="groupsSearchKey" class="select">Search for:</label>
+			<input type="search" name="groupsSearchKey" id="groupsSearchKey" />
+		</div>
+		
+		<div data-role="fieldcontain">
+			<label for="groupsOrder">Order:</label>
+			<select name="groupsOrder" id="groupsOrder" data-role="slider">
+				<option value="off">Ascending</option>
+				<option value="on">Descending</option>
+			</select> 
+		</div>
+		
+	<button type="submit" data-theme="b" name="submit" value="submit-value">
+			<span data-icon="search">Okay</span>
+		</button>
+		
+</div>
+<div data-role="footer" data-position="fixed" data-theme="b">
+	<div data-role="navbar">
+		<ul>
+			<li><a href="/#groups" data-icon="delete">Close</a></li>
+		</ul>
+	</div><!-- /navbar -->
+</div>

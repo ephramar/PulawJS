@@ -1,0 +1,1 @@
+define(["async!http://maps.google.com/maps?file=api&async=2&v=2&sensor=false&key=AIzaSyA35GuPcCtsVxQETjN2DsHMlycqhVPHodE"],function(){return{addMapToCanvas:function(mapCanvas,provider){window.mapstraction=new mxn.Mapstraction(mapCanvas,provider)}}})

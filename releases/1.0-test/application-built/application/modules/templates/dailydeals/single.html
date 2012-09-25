@@ -1,0 +1,77 @@
+<div data-role="header" data-theme="b">
+	<h1>Deals</h1>
+	<a class="backBtn" data-icon="back">Back</a>
+	<a href="#" data-icon="home">Home</a>
+</div>
+<div data-role="navbar">
+	<div class="ui-body ui-body-b">
+		<div style="text-align:center;" data-role="controlgroup" data-type="horizontal" data-mini="true">
+			<a class="ui-btn-active" style="width:49%;" data-theme="b" id="listBtn" data-role="button">Details</a>
+			<a style="width:49%;" data-theme="b" id="mapBtn" data-role="button">Map</a>
+		</div>
+	</div>
+</div>
+<div data-role="content">
+	<div class="content-primary">			
+		<h2><%=deal.post_title%></h2>
+			<div class="ui-body ui-body-e">
+				<div id="expiration"></div>
+			</div>
+			<div class="ui-body ui-body-c">
+				<div class="page-gallery">
+					<img src="<%=deal.thumbnail%>" width="100%"/>
+				</div>
+				<div class="page-content">
+					<%=deal.post_content%>
+				</div>
+			</div>
+		<div class="ui-body ui-body-e">
+		
+			<div class="ui-grid-a">
+				<table class="ui-table-cell ui-grid-a">
+					<tr>
+						<td class="ui-bar ui-bar-c">Value</td>
+						<td id="price" class="ui-bar ui-bar-c">$ <%=parseFloat(deal.fields.value[0]).toFixed(2)%> USD</td>
+					</tr>
+					<tr>
+						<td class="ui-bar ui-bar-c">Price</td>
+						<td class="ui-bar ui-bar-c">$ <%=parseFloat(deal.fields.price[0]).toFixed(2)%> USD</td>
+					</tr>
+					<tr>
+						<td class="ui-bar ui-bar-c">Savings</td>
+						<td class="ui-bar ui-bar-c"><%=deal.fields.discount[0]%>%</td>
+					</tr>
+					<tr>
+						<td class="ui-bar ui-bar-c">Location</td>
+						<td class="ui-bar ui-bar-c"><%=deal.fields.address[0]%></td>
+					</tr>
+				</table>
+			</div><!-- /grid-a -->
+		
+			<a rel="external" target="_blank" href="<%=deal.url%>"data-theme="e" data-role="button" data-icon="grid">Get This Deal</a>
+		</div>
+	</div>
+	<div id="map_canvasContainer">
+		<div id="map_canvas" width="99%" style="top:0px;height:485px;"></div>
+	</div>
+</div>
+<div data-role="footer" data-position="fixed" data-theme="b">
+	<h3>By Admin</h3>
+</div>
+<%
+$(function () {
+	var arrDate = deal.fields.time_ends[0].split(' ');
+	var arrDays = arrDate[0].split('-');
+	var expiration = new Date( arrDays[0], arrDays[1] , arrDays[2]);
+	setTimeout( function(){
+		$('#expiration').countdown(
+			{
+				until: expiration,
+				onExpiry: function(){
+					alert('test');
+				}
+			}
+		);
+	});
+});	
+%>
