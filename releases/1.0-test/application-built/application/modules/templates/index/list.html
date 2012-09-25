@@ -1,0 +1,47 @@
+<div data-role="header" data-theme="b">
+	<h1>Market</h1>
+	<a class="backBtn" data-icon="back">Back</a>
+	<a href="#" data-icon="home">Home</a>
+</div>
+<div data-role="navbar">
+	<div class="ui-body ui-body-b">
+		<div style="text-align:center;" data-role="controlgroup" data-type="horizontal" data-mini="true">
+			<a class="ui-btn-active" id="listBtn" style="width:49%;" data-theme="b" data-role="button">List</a>
+			<a style="width:49%;" data-theme="b" id="mapBtn" data-role="button">Map</a>
+		</div>
+	</div>
+</div>
+<div data-role="content">
+
+	<div id="noresultDisplay">	
+		<div data-role="header" data-theme="b" class="ui-header ui-bar-b" role="banner">
+			<h1 class="ui-title" role="heading" aria-level="1">Your search was a little too specific.</h1>
+		</div>
+		<div class="ui-body ui-body-b">
+			<p>
+				There are no results found this time. We suggest unchecking a couple of filters, or searching for a different city
+			</p>
+		</div>
+	</div>
+
+	<div class="listings">
+		<ul id="MarketItemList" data-role="listview" data-filter="true"></ul>
+		<br />
+		<a id="showmoreBtn" data-role="button">
+			Show More
+		</a>
+	</div>
+
+	<div id="map_canvasContainer">
+		<div id="map_canvas" width="100%" style="top:0px;height:485px;"></div>
+	</div>
+	
+</div>
+<div data-role="footer" data-position="fixed" data-theme="b">
+	<div data-role="navbar">
+		<ul>
+			<li><a href="/#search/listings" data-icon="search">Search</a></li>
+			<li><a href="/#settings/listings" data-icon="star">Settings</a></li>
+		</ul>
+	</div><!-- /navbar -->
+</div>

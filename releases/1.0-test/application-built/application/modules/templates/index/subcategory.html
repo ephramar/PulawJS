@@ -1,0 +1,27 @@
+<div data-role="header" data-theme="b">
+	<h1 title="Bazaar">
+		<%=parent[0].attributes.name%>
+	</h1>
+	<a class="backBtn" data-icon="back">Back</a>
+	<a href="#postAd" data-icon="home">Post</a>
+</div>
+<div data-role="content">
+	<div class="content-primary">
+		<ul data-role="listview">
+			<% _.each( categories, function( category ){ %>
+				<li><a data-icon="gear" href="/#listings/<%=category.attributes.slug%>"><%=category.attributes.name%></a></li>
+			<% }); %>
+		</ul>
+	</div>
+</div>
+<div data-role="footer" data-position="fixed" data-theme="b">
+	<div data-role="navbar">
+		<ul>
+			<li><a href="/#" data-icon="star" class="ui-btn-active">Market</a></li>
+			<li><a href="/#dailydeals" data-icon="star">Deals</a></li>
+			<li><a href="/#checkins" data-icon="star">Checkins</a></li>
+			<li><a href="/#directory" data-icon="star">Directory</a></li>
+			<li><a href="/#groups" data-icon="star">Groups</a></li>
+		</ul>
+	</div><!-- /navbar -->
+</div>
