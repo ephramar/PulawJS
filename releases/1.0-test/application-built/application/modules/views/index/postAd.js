@@ -1,1 +1,0 @@
-define(["text!templates/index/postAd.html"],function(view){var moduleView=Backbone.View.extend({template:_.template(view),render:function(){return $(this.el).html(this.template()),this}});return new moduleView})

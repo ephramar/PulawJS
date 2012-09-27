@@ -12,8 +12,7 @@ define(
 			var regionNearestLabel ='';
 			var arrRegion = new Array();
 		
-			//begin
-				//check if keyword is empty, the keyword is a must so dont run the search unless the user fills out the search text field.
+			//Check if keyword is empty, the keyword is a must so dont run the search unless the user fills out the search text field.
 			if( $( eKeyword ).val().length > 0 ) {
 				
 				var geocoder = new google.maps.Geocoder();
@@ -26,7 +25,7 @@ define(
 							var location = results[0].geometry.location;
 								//The geocoder api returns a random objects variables containing latitude and longitude 
 								//we need to iterate over its object and assign it properly to our own object so 
-								//it will not break our program w/ undefined variable coming from geocoder api
+								//it will not break our program with undefined variable coming from geocoder api
 								for ( var nodes in location) {
 									counter ++;
 									console.log( location[nodes] );
@@ -38,7 +37,7 @@ define(
 											break;
 										}
 								}
-								//convert the address into its proper format
+								//Convert the address into its proper format
 								$( eFormattedAddr ).val( results[0].formatted_address );
 									
 								$.each( results[0].address_components, function( index, component ){	
@@ -47,7 +46,7 @@ define(
 										return false;
 									}
 								});
-												
+
 								$.each( jsonRegions, function( index, val ){
 									regionSupported = val.name;
 									foundCity = locality;
@@ -63,7 +62,7 @@ define(
 								});
 										
 								if( count >= 1){
-									//future functionality added, do not remove			
+								//Future functionality added	
 								}else{
 									var distance = new Array();
 									var nearer_distance = 0;
@@ -78,27 +77,26 @@ define(
 										var destination_lat = parseInt( $( eLat ).val() );									
 										var destination_lon = parseInt( $( eLon ).val() );		
 										var calculated_distance = get_distance( lat, destination_lat, lon, destination_lon );										
-													
+
 										distance.push( [ _id, calculated_distance] );			
-																
 									}
-														
+
 									var distance_length = parseInt( distance.length );
-														
+
 									distance.sort( function (a, b) {
 										return a[1] - b[1];
 									});
-													
+
 									var nearest_region_id = distance[0][0];
-															
+
 									$("#region").val( nearest_region_id );
-											
+
 									$.each( jsonRegions, function( k, v ){
 										if( nearest_region_id == v.term_id ){
 											nearest_region_name = v.name;
 										}
 									});
-											
+
 									alert('The nearest City we support is ' + nearest_region_name );
 									return;
 								}
@@ -109,7 +107,7 @@ define(
 					}
 				);
 			}			
-		}// End location filter password
+		}
 	
 	return locationFilter;
 	
