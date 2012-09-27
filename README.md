@@ -1,21 +1,13 @@
-PulawJS
-=======
+# PulawJS
+MVC Platform for JavaScript. Inspired by Zend Framework.
 
-MVC Platform for JavaScript. Inspired by Zend Framework
+### What is PulawJS?
+This is a single-page Boilerplate template that you can deploy for rapid Web and Mobile Development.
 
-### Core Developer ###
-* dunhakdis
+### Installation
+You may check the source code [here](https://pulaw.codeplex.com/SourceControl/BrowseLatest)
+* Download the [latest](https://pulaw.codeplex.com/releases) release and install it in your localhost server.
+* Configure the path of the application in the Application Bootloader (/bootstrap/main.js).
 
-### Core UI Designer ###
-* recycler_1441
-
-### Project Maintainers ###
-* rjx44
-* divineninja
-
-### Project Template Designer ###
-* em22
-* falz04
-
-### Project Editor ###
-* qbp9900
+### More Information
+You can find full documentation at our [CodePlex Server](https://pulaw.codeplex.com/documentation)
