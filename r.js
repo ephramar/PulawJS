@@ -11,10 +11,6 @@
  * the shell of the r.js file.
  */
 
-/*jslint evil: true, nomen: true, sloppy: true */
-/*global readFile: true, process: false, Packages: false, print: false,
-console: false, java: false, module: false, requirejsVars */
-
 var requirejs, require, define;
 (function (console, args, readFileFunc) {
 

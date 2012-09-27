@@ -1,15 +1,15 @@
-//this is our router
+/**
+ * Define the routers
+ */
 define(
 	[
 		'views/index/index',
 		'views/index/about',
-		'views/index/aboutEpsug',
 		'views/index/download'
 	],
 	function(
 		index,
 		about,
-		aboutEpsug,
 		download
 	){
 		window.AppRouter =  Backbone.Router.extend({
@@ -17,7 +17,6 @@ define(
 			routes: {
 				'': 'home',
 				'about-this-framework': 'about',
-				'about-epsug': 'aboutEpsug',
 				'download': 'download'	
 			},
 			
@@ -29,14 +28,10 @@ define(
 				App.changePage( about );
 			},
 			
-			aboutEpsug: function(){
-				App.changePage( aboutEpsug );
-			},
-			
 			download: function(){
 				App.changePage( download );
 			}
-				
+
 		});
 			
 		var initialize = function(){
