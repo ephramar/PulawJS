@@ -3,9 +3,12 @@
  * Available via the MIT or new BSD license.
  * see: http://github.com/jrburke/requirejs for details
  */
-/*jslint regexp: true, nomen: true */
-/*global window, navigator, document, importScripts, jQuery, setTimeout, opera */
-
+ 
+/**
+ * @JSLint regexp: true, nomen: true
+ * @global window, navigator, document, importScripts, jQuery, setTimeout, opera
+ */
+ 
 var requirejs, require, define;
 (function (global) {
     'use strict';

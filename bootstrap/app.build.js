@@ -1,10 +1,15 @@
+/**
+ * App.BuildJS
+ * Router Configurator
+ * ClubKoncepto Web Development
+ *
+ * This file sets and describes the Application Routers
+ */
+
 ({
     appDir: "../",
     baseUrl: "bootstrap",
     dir: "../application-built",
-    //Comment out the optimize line if you want
-    //the code minified by UglifyJS
-    //optimize: "none",
 
 	paths: {
 		assets: 	'../application/assets',
@@ -21,10 +26,7 @@
 		jquery:		'empty:'
 	},
 	
-    modules: [
-        
-        //Optimize the application files. Exclude jQuery since it is
-        //included already in require-jquery.js
+    modules: [        
         {
             name: "main"
         }

@@ -1,1 +1,0 @@
-define(["text!templates/groups/groups.html"],function(view){var moduleView=Backbone.View.extend({events:{"click .backBtn":"shout"},shout:function(){window.history.back()},template:_.template(view),render:function(){return $(this.el).html(this.template()),this}});return new moduleView})
